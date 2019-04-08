@@ -20,7 +20,7 @@ export class ClientComponent implements OnInit {
   constructor(private modalService: NgbModal, private tokenService: TokenService) {
     this.users = [
       {id: 'smurf', name: 'Regular Smurf', role: 'smurf', department: 'forest'},
-      {id: 'papa', name: 'Papa Smurf', role: 'guru', department: 'forest', age: 120},
+      {id: 'papa', name: 'Papa Smurf', role: 'papa', department: 'forest', age: 120},
       {id: 'gargamel', name: 'Gargamel', role: 'wizard', department: 'whatever'}
     ];
   }
