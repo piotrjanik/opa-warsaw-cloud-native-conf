@@ -51,6 +51,8 @@ dockerize:
     - ui
   services:
     - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   script:
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-mushrooms mushrooms
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-books books
