@@ -1,3 +1,7 @@
+environment:
+  DOCKER_HOST: tcp://docker:2375/
+  DOCKER_DRIVER: overlay2
+
 cache:
   paths:
   - mushrooms/node_modules/
@@ -33,10 +37,11 @@ ui:
 
 dockerize:
   stage: dockerize
+  image: docker:stable
   script:
-    - docker build -t piotrjanik/opa-demo-mushrooms mushrooms
-    - docker build -t piotrjanik/opa-demo-books books
-    - docker build -t piotrjanik/opa-demo-ui ui
-    - docker push piotrjanik/opa-demo-mushrooms
-    - docker push piotrjanik/opa-demo-books
-    - docker push piotrjanik/opa-demo-ui
+    - docker build -t registry.gitlab.com/piotrjanik/opa-demo-mushrooms mushrooms
+    - docker build -t registry.gitlab.com/piotrjanik/opa-demo-books books
+    - docker build -t registry.gitlab.com/piotrjanik/opa-demo-ui ui
+    - docker push registry.gitlab.com/piotrjanik/opa-demo-mushrooms
+    - docker push registry.gitlab.com/piotrjanik/opa-demo-books
+    - docker push registry.gitlab.com/piotrjanik/opa-demo-ui
