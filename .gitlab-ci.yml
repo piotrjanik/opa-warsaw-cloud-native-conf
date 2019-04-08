@@ -36,6 +36,8 @@ dockerize:
     - docker
   stage: dockerize
   image: docker:stable
+  services:
+    - docker:dind
   script:
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-mushrooms mushrooms
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-books books
