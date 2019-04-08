@@ -1,11 +1,18 @@
 <div class="container-fluid mt-5">
   <div class="d-flex justify-content-around">
-    <div class="p-3 shadow p-3 mb-5 bg-white rounded" *ngFor="let service of getServices()">
-      <figure class="figure" (click)="get(service)">
-        <img src="/assets/{{service.icon}}" class="figure-img">
-        <figcaption class="figure-caption text-left">{{service.name}}</figcaption>
-        <button (click)="get(service)">GET</button>
-        <button (click)="post(service)">POST</button>
+    <div class="p-3 shadow p-3 mb-5 bg-white rounded">
+      <figure class="figure">
+        <img src="/assets/mushroom_red.svg" class="figure-img">
+        <figcaption class="figure-caption text-left">Mushrooms</figcaption>
+        <button (click)="postMushroom('green')">Add Green</button>
+        <button (click)="postMushroom('red')"> Add Red</button>
+      </figure>
+    </div>
+    <div class="p-3 shadow p-3 mb-5 bg-white rounded">
+      <figure class="figure">
+        <img src="/assets/library.svg" class="figure-img">
+        <figcaption class="figure-caption text-left">Books</figcaption>
+        <button (click)="getBooks()">Get</button>
       </figure>
     </div>
   </div>

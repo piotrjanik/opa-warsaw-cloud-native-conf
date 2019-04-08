@@ -19,8 +19,8 @@ export class ServicesComponent implements OnInit {
 
   getServices(): Array<Service> {
     return [
-      {id: 'mushrooms', name: 'Red Mushrooms', icon: 'mushroom.svg', path: '/api/mushrooms?color=red'},
-      {id: 'mushrooms', name: 'Green Mushrooms', icon: 'mushroom.svg', path: '/api/mushrooms?color=green'},
+      {id: 'mushrooms', name: 'Red Mushrooms', icon: 'mushroom_red.svg', path: '/api/mushrooms'},
+      {id: 'mushrooms', name: 'Green Mushrooms', icon: 'mushroom_green.svg', path: '/api/mushrooms'},
       {id: 'library', name: 'Books', icon: 'library.svg', path: '/api/books'}];
   }
 
@@ -34,12 +34,21 @@ export class ServicesComponent implements OnInit {
       );
   }
 
-  post(service: Service) {
+  getBooks() {
     const token = this.tokenService.token;
-    this.http.post(service.path, {who: 'cares'}, {headers: {authorization: token}, responseType: 'text'})
+    this.http.post('/api/books', {who: 'cares'}, {headers: {authorization: token}, responseType: 'text'})
       .subscribe(
-        data => this.alerts.push({type: 'success', message: 'POST ' + service.path}),
-        error => this.alerts.push({type: 'danger', message: 'POST ' + service.path + ' error: ' + error.message})
+        data => this.alerts.push({type: 'success', message: 'OK'}),
+        error => this.alerts.push({type: 'danger', message: 'ERROR: ' + error.message})
+      );
+  }
+
+  postMushroom(color) {
+    const token = this.tokenService.token;
+    this.http.post('/api/mushrooms', {mushroom: color}, {headers: {authorization: token}, responseType: 'text'})
+      .subscribe(
+        data => this.alerts.push({type: 'success', message: 'OK'}),
+        error => this.alerts.push({type: 'danger', message: 'ERROR: ' + error.message})
       );
   }
 
