@@ -6,7 +6,7 @@ cache:
 
 stages:
   - compile
-#  - package
+  - dockerize
 
 mushrooms:
   stage: compile
@@ -15,7 +15,6 @@ mushrooms:
    - cd mushrooms
    - npm install
    - npm run build
-
 books:
   stage: compile
   image: node:11
@@ -31,3 +30,13 @@ ui:
     - cd ui
     - npm install
     - npm run build
+
+dockerize:
+  stage: dockerize
+  script:
+    - docker build -t piotrjanik/opa-demo-mushrooms mushrooms
+    - docker build -t piotrjanik/opa-demo-books books
+    - docker build -t piotrjanik/opa-demo-ui ui
+    - docker push piotrjanik/opa-demo-mushrooms
+    - docker push piotrjanik/opa-demo-books
+    - docker push piotrjanik/opa-demo-ui
