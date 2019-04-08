@@ -1,0 +1,13 @@
+{
+    "principal": {
+        "name": "Papa",
+        "role": "papa",
+        "department": "forest",
+        "age": 100
+    },
+    "action": "ADD",
+    "resource": {
+        "name": "mushrooms",
+        "color": "red"
+    }
+}

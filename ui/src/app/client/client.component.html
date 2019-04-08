@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="https://github.com/open-policy-agent/opa/raw/master/logo/logo.png" width="30" height="30"
+         class="d-inline-block align-top" alt="">
+    OPA Demo
+  </a>
+
+  <button *ngIf="currentUser!=null" class="btn btn-lg btn-outline-primary" (click)="open(content)">
+    <img src="/assets/{{currentUser.id}}.png">
+    {{currentUser.name}}
+  </button>
+  <button *ngIf="currentUser==null" class="btn btn-lg btn-outline-primary" (click)="open(content)">Login</button>
+</nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Who do you wanna be today?</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex justify-content-around align-middle align-content-center">
+      <figure class="figure shadow bg-white rounded" *ngFor="let user of users" (click)="selectUser(user)">
+        <img src="/assets/{{user.id}}.png" class="figure-img align-content-center"
+             [ngClass]="user==currentUser ? 'border':''">
+        <figcaption class="figure-caption text-left badge">{{user.name}}</figcaption>
+      </figure>
+    </div>
+    <div class="d-flex mt-5">
+      <div class="d-md-flex">
+        <div class="text-break overflow-10">TOKEN:<p class="text-monospace">{{token}}</p></div>
+      </div>
+    </div>
+    <div class="d-flex mt-5">
+      <div class="d-md-flex">
+        <div class="text-break overflow-10">JSON:<p class="text-monospace">{{stringify(currentUser)}}</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>

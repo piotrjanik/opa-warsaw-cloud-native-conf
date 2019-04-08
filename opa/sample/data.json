@@ -1,0 +1,12 @@
+{
+    "employees": [
+        {
+            "name": "John",
+            "city": "Warsaw"
+        },
+        {
+            "name": "Mark",
+            "city": "Cracow"
+        }
+    ]
+}
