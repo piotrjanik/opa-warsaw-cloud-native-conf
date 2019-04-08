@@ -40,11 +40,11 @@ ui:
     paths:
       - ui/dist/
 
-opa:
-  stage: compile
-  image: openpolicyagent/opa
-  script:
-    - test demo
+#opa:
+#  stage: compile
+#  image:
+#    name: openpolicyagent/opa
+#    command: ["test","./demo"]
 
 dockerize:
   tags:
