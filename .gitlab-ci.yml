@@ -17,7 +17,7 @@ mushrooms:
    - npm run build
   artifacts:
     paths:
-      - out/
+      - mushrooms/out/
 books:
   stage: compile
   image: node:11
@@ -27,7 +27,7 @@ books:
     - npm run build
   artifacts:
     paths:
-      - out/
+      - books/out/
 
 ui:
   stage: compile
@@ -38,7 +38,7 @@ ui:
     - npm run build
   artifacts:
     paths:
-      - out/
+      - ui/out/
 
 dockerize:
   tags:
