@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {TokenService} from "../token.service";
 
 @Component({
@@ -27,7 +27,7 @@ export class ServicesComponent implements OnInit {
 
   get(service: Service) {
     const token = this.tokenService.token;
-    this.http.get<HttpResponse<any>>(service.path, {headers: {authorization: token}})
+    this.http.get(service.path, {headers: {authorization: token}, responseType: 'text'})
       .subscribe(
         data => this.alerts.push({type: 'success', message: 'GET ' + service.path}),
         error => this.alerts.push({type: 'danger', message: 'GET ' + service.path + ' error: ' + error.message})
@@ -36,7 +36,7 @@ export class ServicesComponent implements OnInit {
 
   post(service: Service) {
     const token = this.tokenService.token;
-    this.http.post<HttpResponse<any>>(service.path, {who: 'cares'}, {headers: {authorization: token}})
+    this.http.post(service.path, {who: 'cares'}, {headers: {authorization: token}, responseType: 'text'})
       .subscribe(
         data => this.alerts.push({type: 'success', message: 'POST ' + service.path}),
         error => this.alerts.push({type: 'danger', message: 'POST ' + service.path + ' error: ' + error.message})
