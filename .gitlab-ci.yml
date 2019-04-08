@@ -42,7 +42,7 @@ ui:
 
 opa:
   stage: compile
-  image: openpolicyagent
+  image: openpolicyagent/opa
   script:
     - test demo
 
