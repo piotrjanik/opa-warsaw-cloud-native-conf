@@ -43,9 +43,9 @@ export class ServicesComponent implements OnInit {
       );
   }
 
-  postMushroom(color) {
+  postMushroom(c) {
     const token = this.tokenService.token;
-    this.http.post('/api/mushrooms', {mushroom: color}, {headers: {authorization: token}, responseType: 'text'})
+    this.http.post('/api/mushrooms', {color: c}, {headers: {authorization: token}, responseType: 'text'})
       .subscribe(
         data => this.alerts.push({type: 'success', message: 'OK'}),
         error => this.alerts.push({type: 'danger', message: 'ERROR: ' + error.message})
