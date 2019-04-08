@@ -26,8 +26,8 @@ export namespace Api {
                 method: "POST",
                 path: `/api/mushrooms`,
                 handler: (request: Request, h: ResponseToolkit) => {
-                    const color = request.query['color'] ? request.query['color'] : null;
-                    return checkOpa(logger, request.headers['authorization'], 'mushrooms', 'Get', color)
+                    const color = request.payload['color'] ? request.payload['color'] : null;
+                    return checkOpa(logger, request.headers['authorization'], 'mushrooms', 'Add', color)
                         .then(allow => {
                             if (!allow) {
                                 return h.response().code(403);
