@@ -45,6 +45,10 @@ dockerize:
     - docker
   stage: dockerize
   image: docker:stable
+  dependencies:
+    - mushrooms
+    - books
+    - ui
   services:
     - docker:dind
   script:
