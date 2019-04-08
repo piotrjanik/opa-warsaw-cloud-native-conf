@@ -32,6 +32,8 @@ ui:
     - npm run build
 
 dockerize:
+  tags:
+    - docker
   stage: dockerize
   image: docker:stable
   script:
