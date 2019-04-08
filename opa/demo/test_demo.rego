@@ -37,7 +37,7 @@ test_smurf_can_add_green_mushrom {
         "action": "ADD",
         "resource": {"name":"mushrooms", "color": "green"}
     }
-    allow with input as {"principal":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNtdXJmIiwibmFtZSI6IlJlZ3VsYXIgU211cmYiLCJyb2xlIjoic211cmYiLCJkZXBhcnRtZW50IjoiZm9yZXN0IiwiaWF0IjoxNTU0NTgzNzkwfQ.nTpW9KbhpxMSbwZIoAhorayWRS6qxCHM4w1jKaWVQmw","action":"Get","resource":{"name":"mushrooms","color":"green"}}
+    allow with input as {"principal":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdhcmdhbWVsIiwibmFtZSI6IkdhcmdhbWVsIiwicm9sZSI6IndpemFyZCIsImRlcGFydG1lbnQiOiJ3aGF0ZXZlciIsImlhdCI6MTU1NDcyNTMzNH0.H6jfKCwJJrXWw-X_aCUcw6hWfrKqRXZ2IOAC8kB7T-s","action":"Get","resource":{"name":"mushrooms","color":"green"}}
 }
 
 test_papa_can_add_red_mushroom {

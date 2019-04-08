@@ -38,7 +38,7 @@ unpack_token(p) = p {
 }
 
 unpack_token(p) = payload {
-    is_string(p)
+    # is_string(p)
     io.jwt.decode(p, [header, payload, sig])
 }
 

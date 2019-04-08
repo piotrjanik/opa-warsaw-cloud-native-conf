@@ -1,8 +1,8 @@
 {
-    "principal": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNtdXJmIiwibmFtZSI6IlJlZ3VsYXIgU211cmYiLCJyb2xlIjoic211cmYiLCJkZXBhcnRtZW50IjoiZm9yZXN0IiwiaWF0IjoxNTU0NTgzNzkwfQ.nTpW9KbhpxMSbwZIoAhorayWRS6qxCHM4w1jKaWVQmw",
-    "action": "Get",
-    "resource": {
-        "name": "mushrooms",
-        "color": "red"
-    }
+        "principal": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InNtdXJmIiwibmFtZSI6IlJlZ3VsYXIgU211cmYiLCJyb2xlIjoic211cmYiLCJkZXBhcnRtZW50IjoiZm9yZXN0IiwiaWF0IjoxNTU0NzI2NTI2fQ.Vy2D4hv85EfTHLjV2S5cMe9KfOCTKKQ9mpNYU6IGUwM",
+        "action": "Get",
+        "resource": {
+            "name": "mushrooms",
+            "color": "green"
+        }
 }
