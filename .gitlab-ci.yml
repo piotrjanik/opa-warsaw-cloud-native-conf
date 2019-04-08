@@ -40,6 +40,12 @@ ui:
     paths:
       - ui/dist/
 
+opa:
+  stage: compile
+  image: openpolicyagent
+  script:
+    - test demo
+
 dockerize:
   tags:
     - docker
@@ -57,6 +63,8 @@ dockerize:
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-mushrooms mushrooms
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-books books
     - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-ui ui
+    - docker build -t registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-policies opa/demo
     - docker push registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-mushrooms
     - docker push registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-books
     - docker push registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-ui
+    - docker push registry.gitlab.com/piotrjanik/opa-smurf/opa-demo-policies
