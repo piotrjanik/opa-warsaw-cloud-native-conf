@@ -1,4 +1,4 @@
-FROM node:11-alpine
+FROM node:11
 ADD ./out /opt/service/out
 ADD ./node_modules /opt/service/node_modules
 ADD package.json /opt/service

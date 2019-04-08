@@ -38,7 +38,7 @@ ui:
     - npm run build
   artifacts:
     paths:
-      - ui/out/
+      - ui/dist/
 
 dockerize:
   tags:

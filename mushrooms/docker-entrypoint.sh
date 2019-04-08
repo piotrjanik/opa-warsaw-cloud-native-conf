@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec npm run "$@"
+exec npm run start
