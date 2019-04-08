@@ -15,6 +15,9 @@ mushrooms:
    - cd mushrooms
    - npm install
    - npm run build
+  artifacts:
+    paths:
+      - out/
 books:
   stage: compile
   image: node:11
@@ -22,6 +25,9 @@ books:
     - cd books
     - npm install
     - npm run build
+  artifacts:
+    paths:
+      - out/
 
 ui:
   stage: compile
@@ -30,6 +36,9 @@ ui:
     - cd ui
     - npm install
     - npm run build
+  artifacts:
+    paths:
+      - out/
 
 dockerize:
   tags:
