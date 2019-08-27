@@ -1,0 +1,4 @@
+resources:
+  - recommended-labels.yaml
+  - check-ingress-host.yaml
+  - images-should-match.yaml

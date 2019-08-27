@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  labels:
+    app.kubernetes.io/name: keycloak
+    app.kubernetes.io/component: identity
+    app.kubernetes.io/version: "0.1"
+    app.kubernetes.io/instance: keycloak1
+    app.kubernetes.io/part-of: "opa-demo"
+    app.kubernetes.io/managed-by: "me-you-and-us"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+    spec:
+      volumes:
+        - name: keycloak-realm
+          configMap:
+            name: keycloak-realm
+      containers:
+        - name: keycloak
+          image: jboss/keycloak
+          env:
+            - name: KEYCLOAK_USER
+              value: "admin"
+            - name: KEYCLOAK_PASSWORD
+              value: "admin"
+            - name: PROXY_ADDRESS_FORWARDING
+              value: "true"
+            - name: KEYCLOAK_IMPORT
+              value: "/opt/realm/keycloak-realm.json"
+          ports:
+            - name: http
+              containerPort: 8080
+            - name: https
+              containerPort: 8443
+          readinessProbe:
+            httpGet:
+              path: /auth/realms/master
+              port: 8080
+          volumeMounts:
+            - mountPath: /opt/realm
+              name: keycloak-realm

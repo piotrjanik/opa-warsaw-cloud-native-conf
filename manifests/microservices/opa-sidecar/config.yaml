@@ -1,0 +1,11 @@
+services:
+  - name: demo
+    url: http://policies
+
+bundles:
+  authz:
+    service: demo
+    resource: bundle.tar.gz
+    polling:
+      min_delay_seconds: 10
+      max_delay_seconds: 20

@@ -1,0 +1,17 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: RequiredLabels
+metadata:
+  name: recommendedlabels
+spec:
+  match:
+    kinds:
+      - apiGroups: ["extensions","apps"]
+        kinds: ["Deployment"]
+  parameters:
+    labels:
+      - "app.kubernetes.io/name"
+      - "app.kubernetes.io/instance"
+      - "app.kubernetes.io/version"
+      - "app.kubernetes.io/component"
+      - "app.kubernetes.io/part-of"
+      - "app.kubernetes.io/managed-by"

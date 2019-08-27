@@ -1,0 +1,17 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health
+logging:
+  config: classpath:logging-config.xml
+spring:
+  main:
+    banner-mode: 'off'
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://opa/auth/realms/my_realm
+opa:
+  url: http://localhost:8181/v1/data/demo/allow

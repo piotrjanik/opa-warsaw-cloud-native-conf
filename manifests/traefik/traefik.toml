@@ -1,0 +1,22 @@
+debug = false
+logLevel = "ERROR"
+defaultEntryPoints = ["http","https"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+  [entryPoints.https]
+  address = ":443"
+  [entryPoints.https.tls]
+
+[kubernetes]
+
+[acme]
+email = "demo@piotrjanik.dev"
+acmeLogging = true
+storage = "/acme/acme.json"
+overrideCertificates = true
+entryPoint = "https"
+onHostRule = true
+[acme.httpChallenge]
+entryPoint = "http"

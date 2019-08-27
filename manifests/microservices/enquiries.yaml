@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enquiries
+  labels:
+    app.kubernetes.io/name: enquiries
+    app.kubernetes.io/component: service
+    app.kubernetes.io/version: "0.1"
+    app.kubernetes.io/instance: enquiries
+    app.kubernetes.io/part-of: "opa-demo"
+    app.kubernetes.io/managed-by: "me-you-and-us"
+spec:
+  selector:
+    matchLabels:
+      app: enquiries
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: enquiries
+    spec:
+      containers:
+        - name: enquiries
+          image: piotrjanik/opa-demo-enquiries:latest
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER-URI
+              value: "https://opa.do.piotrjanik.dev/auth/realms/my_realm"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: enquiries
+spec:
+  ports:
+    - port: 8080
+      name: http
+      targetPort: 8080
+  selector:
+    app: enquiries

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: opa.do.piotrjanik.dev
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: frontend
+              servicePort: 80
+          - path: /orders
+            backend:
+              serviceName: orders
+              servicePort: 8080
+          - path: /enquiries
+            backend:
+              serviceName: enquiries
+              servicePort: http
+          - path: /auth
+            backend:
+              serviceName: keycloak
+              servicePort: http

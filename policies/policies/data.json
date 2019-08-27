@@ -1,0 +1,49 @@
+[
+  {
+    "effect": "Allow",
+    "principal": "*",
+    "resources": "*",
+    "action": [
+      "GetAll"
+    ]
+  },
+  {
+    "effect": "Allow",
+    "principal": {
+      "name": "John",
+      "email_verified": true
+    },
+    "resources": [
+      {
+        "name": "enquiries",
+        "id": 1
+      },
+      {
+        "name": "enquiries",
+        "id": 2
+      },
+      {
+        "name": "enquiries",
+        "id": 3
+      }
+    ],
+    "action": [
+      "Update"
+    ]
+  },
+  {
+    "effect": "Allow",
+    "principal": {
+      "email_verified": true
+    },
+    "resources": [
+      {
+        "name": "orders",
+        "status": "CANCELLED"
+      }
+    ],
+    "action": [
+      "Update"
+    ]
+  }
+]

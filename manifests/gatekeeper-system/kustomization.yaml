@@ -1,0 +1,20 @@
+namespace: gatekeeper-system
+resources:
+  - 0_namespace.yaml
+  - 1_crd-configs.yaml
+  - 1_crd-templates.yaml
+  - 2_cluster-role.yaml
+  - 2_cluster-role-binding.yaml
+  - 3_service.yaml
+  - 4_statefulset.yaml
+  - 5_config.yaml
+  - gatekeeper-constraint-templates
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+secretGenerator:
+  - name: gatekeeper-webhook-server-secret
+    type: Opaque
+    envs:
+      - secret.txt

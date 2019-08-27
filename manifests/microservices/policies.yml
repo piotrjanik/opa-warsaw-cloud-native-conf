@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: policies
+  labels:
+    app.kubernetes.io/name: policies
+    app.kubernetes.io/component: policies
+    app.kubernetes.io/version: "0.1"
+    app.kubernetes.io/instance: policies1
+    app.kubernetes.io/part-of: "opa-demo"
+    app.kubernetes.io/managed-by: "me-you-and-us"
+spec:
+  selector:
+    matchLabels:
+      app: policies
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: policies
+    spec:
+      containers:
+        - name: policies
+          image: piotrjanik/opa-demo-policies
+          imagePullPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: policies
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: policies
+---
+

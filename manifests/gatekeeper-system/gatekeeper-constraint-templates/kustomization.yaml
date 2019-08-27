@@ -1,0 +1,5 @@
+resources:
+  - required-labels.yaml
+  - images-should-match.yaml
+  - check-ingress-host.yaml
+  - container-resource-required.yaml

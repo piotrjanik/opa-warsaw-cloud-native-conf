@@ -1,0 +1,9 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: CheckIngressHost
+metadata:
+  name: checkingresshost
+spec:
+  match:
+    kinds:
+      - apiGroups: ["*"]
+        kinds: ["Ingress"]

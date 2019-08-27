@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opa-sidecar
+spec:
+  template:
+    spec:
+      volumes:
+        - name: opa-config
+          configMap:
+            name: opa-config
+      containers:
+        - name: opa
+          image: openpolicyagent/opa:latest
+          args:
+            - "run"
+            - "-s"
+            - "--addr=http://127.0.0.1:8181"
+            - "--config-file=/etc/opa/config.yaml"
+          volumeMounts:
+            - name: opa-config
+              readOnly: true
+              mountPath: /etc/opa
