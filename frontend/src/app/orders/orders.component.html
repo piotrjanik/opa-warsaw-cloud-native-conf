@@ -1,0 +1,39 @@
+<div class="table-responsive">
+
+  <!--Table-->
+  <table class="table">
+
+    <!--Table head-->
+    <thead>
+    <tr>
+      <th>#</th>
+      <th class="th-lg">Items</th>
+      <th class="th-lg">Status</th>
+      <th class="th-lg"></th>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+    <tr *ngFor="let o of orders">
+      <th scope="row">{{o.id}}</th>
+      <td>
+        <ol>
+          <li *ngFor="let i of o.items">{{i.name}}</li>
+        </ol>
+      </td>
+      <td>{{o.status}}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-secondary" (click)="ship(o)" [disabled]="o.status=='SHIPPED'">SHIPPED</button>
+          <button type="button" class="btn btn-secondary" (click)="cancel(o)" [disabled]="o.status=='CANCELLED'">CANCELLED</button>
+        </div>
+
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+  <!--Table-->
+
+</div>

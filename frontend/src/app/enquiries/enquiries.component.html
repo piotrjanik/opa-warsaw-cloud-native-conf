@@ -1,0 +1,32 @@
+<div class="table-responsive">
+
+  <!--Table-->
+  <table class="table">
+
+    <!--Table head-->
+    <thead>
+    <tr>
+      <th>#</th>
+      <th class="th-lg">Customer</th>
+      <th class="th-lg">Message</th>
+      <th class="th-lg"></th>
+    </thead>
+    <!--Table head-->
+
+    <!--Table body-->
+    <tbody>
+    <tr *ngFor="let e of enquiries">
+      <th scope="row">{{e.id}}</th>
+      <td>{{e.customer.name}}</td>
+      <td>{{e.message}}</td>
+      <td>
+        <button type="button" class="btn btn-secondary" (click)="resolve(e)" [disabled]="e.resolved">resolve</button>
+      </td>
+    </tr>
+    </tbody>
+    <!--Table body-->
+
+  </table>
+  <!--Table-->
+
+</div>

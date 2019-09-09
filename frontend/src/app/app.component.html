@@ -1,10 +1,52 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="https://github.com/open-policy-agent/opa/raw/master/logo/logo.png" width="30" height="30"
+         class="d-inline-block align-top" alt="">
+    Some Back-Office System
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+          aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> {{claims?.email}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+
+<div class="http-alert">
+  <ngb-alert type="danger" *ngIf="message!=null" [dismissible]="true" (close)="close()">{{message}}</ngb-alert>
+</div>
 
 <div class="container-fluid">
-  <router-outlet name="client"></router-outlet>
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <h4>Enquiries</h4>
+        </div>
+        <div class="card-body">
+          <app-enquiries></app-enquiries>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>Orders</h4>
+        </div>
+        <div class="card-body">
+          <app-orders></app-orders>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="container-fluid">
-  <router-outlet name="services"></router-outlet>
-</div>
-
-

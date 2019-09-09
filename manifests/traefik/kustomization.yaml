@@ -1,0 +1,15 @@
+resources:
+  - traefik-pvc-acme.yaml
+  - traefik-serviceaccount.yaml
+  - traefik-clusterrole.yaml
+  - traefik-clusterrolebinding.yaml
+  - traefik-service.yaml
+  - traefik-deployment.yaml
+
+namespace: kube-system
+generatorOptions:
+  disableNameSuffixHash: false
+configMapGenerator:
+  - name: traefik-config
+    files:
+      - traefik.toml

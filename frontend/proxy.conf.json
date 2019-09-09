@@ -1,14 +1,10 @@
 {
-  "/api/blueberries": {
+  "/enquiries": {
     "target": "http://localhost:9001",
     "secure": false
   },
-  "/api/library": {
+  "/orders": {
     "target": "http://localhost:9002",
-    "secure": false
-  },
-  "/api/mushrooms": {
-    "target": "http://localhost:9003",
     "secure": false
   }
 }

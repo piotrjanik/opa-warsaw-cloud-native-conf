@@ -1,41 +1,36 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppComponent} from './app.component';
-import {ClientComponent} from './client/client.component';
-import {ServicesComponent} from './services/services.component';
-import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from '@angular/forms';
+import {OAuthModule} from 'angular-oauth2-oidc';
 import {HttpClientModule} from '@angular/common/http';
-import {NgbAlertModule, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {EnquiriesComponent} from './enquiries/enquiries.component';
+import {RouterModule, Routes} from '@angular/router';
+import { OrdersComponent } from './orders/orders.component';
 
-const routes: Routes =
-  [
-    {
-      path: '',
-      component: ServicesComponent,
-      data: {title: 'Heroes List'},
-      outlet: 'services'
-    },
-    {
-      path: '',
-      component: ClientComponent,
-      outlet: 'client'
-    }
-  ];
+const appRoutes: Routes = [];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientComponent,
-    ServicesComponent],
+    EnquiriesComponent,
+    OrdersComponent
+  ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    FormsModule,
     HttpClientModule,
-    NgbAlertModule,
-    NgbModalModule
+    OAuthModule.forRoot(),
+    NgbModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    )
   ],
-  providers: [ServicesComponent],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }
